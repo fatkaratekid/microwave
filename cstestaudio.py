@@ -4,6 +4,8 @@ from numpy import genfromtxt
 from scipy.interpolate import interp1d
 import matplotlib.pyplot as plt
 import inspect
+from scipy.interpolate import CubicSpline
+
 
 
 data = genfromtxt('audiodata.csv', delimiter=',');
@@ -24,14 +26,17 @@ x = np.linspace(1, slice_total_points, num=slice_total_points, endpoint=True)
 #print x
 #print (np.cos(-x ** 2 / 9.0)).shape
 
-f = interp1d(x, single_slice)
-f2 = interp1d(x, single_slice, kind='cubic')
+cs = CubicSpline(x, single_slice)
 
-print f
-inspect.getsourcelines(f)
+#f = interp1d(x, single_slice)
+#f2 = interp1d(x, single_slice, kind='cubic')
+
+#print f
+#inspect.getsourcelines(cs)
 
 xnew = np.linspace(1, slice_total_points, num=slice_total_points*4, endpoint=True)
 
-plt.plot(x, single_slice, 'o', xnew, f(xnew), '-', xnew, f2(xnew), '--')
-plt.legend(['data', 'linear', 'cubic'], loc='best')
-plt.show()
+
+#plt.plot(x, single_slice, 'o', xnew, f(xnew), '-', xnew, f2(xnew), '--')
+#plt.legend(['data', 'linear', 'cubic'], loc='best')
+#plt.show()
