@@ -14,13 +14,15 @@ import matplotlib.pyplot as plt
 # print z
 
 from pydub import AudioSegment
-song = AudioSegment.from_mp3("audio.mp3")
+AudioSegment.ffmpeg = "/usr/local/ffmpeg"
+song = AudioSegment.from_wav("/Users/giga/Dev/Python/microwave/test.wav")
 
 
 from numpy import genfromtxt
 data = genfromtxt('audiodata.csv', delimiter=',')
 
-data = song[:10000]
+#data = song[:10000]
+
 # from scipy.io import wavfile
 # fs, nin_data = wavfile.read("audio.mp3")
 

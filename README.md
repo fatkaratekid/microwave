@@ -1,19 +1,19 @@
-pip install virtualenv
-pip install --upgrade  virtualenv
+```pip install virtualenv```
+```pip install --upgrade  virtualenv```
 
 create virtual environment directory (useful option to exclude global packages --no-site-packages, default option after 1.7)
-virtualenv venv
+```virtualenv venv``
 
 start using virtual environment
-source venv/bin/activate
+````source venv/bin/activate``
 
 create a file with all requirements for automated pip install
-pip freeze > requirements.txt
+````pip freeze > requirements.txt``
 
 to list requirements
-pip list
+````pip list``
 
-to install saved requirements
+to install saved r`quirements
 pip install -r requirements.txt
 
 done using venv
